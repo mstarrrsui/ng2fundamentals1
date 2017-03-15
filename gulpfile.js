@@ -18,21 +18,8 @@ gulp.task('serve-dev',  function () {
     serve(true /* isDev */);
 });
 
-gulp.task('nodemon', function (cb) {
-	
-	var started = false;
-	
-	return $.nodemon({
-		script: config.nodeServer
-	}).on('start', function () {
-		// to avoid nodemon being started multiple times
-		// thanks @matthisk
-		if (!started) {
-			cb();
-			started = true; 
-		} 
-	});
-});
+
+
 
 /////////////////////  MY FUNCTIONS /////////////////////////////
 function clean(path) {
@@ -76,9 +63,7 @@ function serve(isDev, specRunner) {
         });
 }
 
-function startExpress() {
 
-}
 
 function log(msg) {
     if (typeof(msg) === 'object') {
@@ -115,11 +100,7 @@ function startBrowserSync(isDev, specRunner) {
     var options = {
         proxy: 'localhost:' + port,
         port: 3000,
-        files: isDev ? [
-            config.client + '**/*.*',
-            //'!' + config.less,
-            config.temp + '**/*.css'
-        ] : [],
+        files:  [config.client + '**/*.{html,htm,css,js}'],
         //files: [config.client + '**/*.*'],
         ghostMode: {
             clicks: true,
