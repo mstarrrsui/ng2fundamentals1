@@ -12,13 +12,26 @@ gulp.task('default', ['help']);
 
 
 
-gulp.task('serve-build',  function () {
-    serve(false /* isDev */);
-});
 
 
 gulp.task('serve-dev',  function () {
     serve(true /* isDev */);
+});
+
+gulp.task('nodemon', function (cb) {
+	
+	var started = false;
+	
+	return $.nodemon({
+		script: config.nodeServer
+	}).on('start', function () {
+		// to avoid nodemon being started multiple times
+		// thanks @matthisk
+		if (!started) {
+			cb();
+			started = true; 
+		} 
+	});
 });
 
 /////////////////////  MY FUNCTIONS /////////////////////////////
@@ -63,6 +76,9 @@ function serve(isDev, specRunner) {
         });
 }
 
+function startExpress() {
+
+}
 
 function log(msg) {
     if (typeof(msg) === 'object') {
@@ -91,17 +107,17 @@ function startBrowserSync(isDev, specRunner) {
     //          .on('change', changeEvent);
     // }
 
-    if (!isDev) {
-        gulp.watch([config.js, config.html], ['optimize', browserSync.reload])
-            .on('change', changeEvent);
-    }
+    //if (!isDev) {
+    //    gulp.watch([config.js, config.html], ['optimize', browserSync.reload])
+    //        .on('change', changeEvent);
+    //}
 
     var options = {
         proxy: 'localhost:' + port,
         port: 3000,
         files: isDev ? [
             config.client + '**/*.*',
-            '!' + config.less,
+            //'!' + config.less,
             config.temp + '**/*.css'
         ] : [],
         //files: [config.client + '**/*.*'],
@@ -114,7 +130,7 @@ function startBrowserSync(isDev, specRunner) {
         injectChanges: true,
         logFileChanges: true,
         logLevel: 'debug',
-        logPrefix: 'brewmanager',
+        logPrefix: 'ng2fundamentals',
         notify: true,
         reloadDelay: 1000 //1000
     };
