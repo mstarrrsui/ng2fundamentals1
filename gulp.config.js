@@ -13,8 +13,6 @@ module.exports = function () {
          */
         build: './build/',
         client: client,
-        theme: clientStyle + 'bootstrap-flatly.css',
-        html: clientApp + '**/*.html',
         index: client + 'index.html',
         root: root,
         server: server,
