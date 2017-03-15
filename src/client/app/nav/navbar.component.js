@@ -7,20 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.name = 'Steve';
+var NavBarComponent = (function () {
+    function NavBarComponent() {
     }
-    AppComponent.prototype.isActive = function () {
-        return true;
-    };
-    return AppComponent;
+    return NavBarComponent;
 }());
-AppComponent = __decorate([
+NavBarComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        template: "\n      <nav-bar></nav-bar>\n      <h1>Hello {{name}}</h1>\n    ",
+        selector: 'nav-bar',
+        templateUrl: 'app/nav/navbar.component.html',
+        styles: ["\n    .nav.navbar-nav {font-size: 15px;}\n    #searchForm {margin-right: 100px;}\n    @media (max-width: 1200px) {#searchForm {display:none}}\n  "]
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], NavBarComponent);
+exports.NavBarComponent = NavBarComponent;
+//# sourceMappingURL=navbar.component.js.map
