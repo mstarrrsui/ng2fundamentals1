@@ -60,7 +60,8 @@
     ],
     "quotemark": [
       true,
-      "single"
+      "single",
+      "double"
     ],
     "radix": true,
     "semicolon": [
