@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var HopsListComponent = (function () {
     function HopsListComponent() {
-        this.hop = {
+        this.hopdata = {
             hsi: "25.0000000",
             id: 28,
             type: "Both",
@@ -25,8 +25,8 @@ var HopsListComponent = (function () {
 }());
 HopsListComponent = __decorate([
     core_1.Component({
-        selector: 'hops-list',
-        templateUrl: 'app/ingredients/hops-list.component.html'
+        selector: "hops-list",
+        templateUrl: "app/ingredients/hops-list.component.html"
     })
 ], HopsListComponent);
 exports.HopsListComponent = HopsListComponent;

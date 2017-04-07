@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-    selector: 'hops-list',
-    templateUrl: 'app/ingredients/hops-list.component.html'
+    selector: "hops-list",
+    templateUrl: "app/ingredients/hops-list.component.html"
 })
 export class HopsListComponent {
-    hop = {
+    hopdata = {
         hsi: "25.0000000",
         id: 28,
         type: "Both",
