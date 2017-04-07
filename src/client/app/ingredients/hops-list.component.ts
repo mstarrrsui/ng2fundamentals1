@@ -19,4 +19,8 @@ export class HopsListComponent {
         name: "Citra",
         countryOfOrigin: "U.S."
     };
+
+    handleItemClicked(item: any) {
+        console.log("received:", item.name);
+    }
 }

@@ -1,5 +1,5 @@
 <div>
     <h1>Hops List</h1>
     <hr>
-    <hops-item [hop]="hopdata"></hops-item>
+    <hops-item (itemClick)="handleItemClicked($event)" [hop]="hopdata"></hops-item>
 </div>

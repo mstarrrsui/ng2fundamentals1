@@ -21,6 +21,9 @@ var HopsListComponent = (function () {
             countryOfOrigin: "U.S."
         };
     }
+    HopsListComponent.prototype.handleItemClicked = function (item) {
+        console.log("received:", item.name);
+    };
     return HopsListComponent;
 }());
 HopsListComponent = __decorate([

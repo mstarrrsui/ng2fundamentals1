@@ -12,13 +12,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var HopsItemComponent = (function () {
     function HopsItemComponent() {
+        this.itemClick = new core_1.EventEmitter();
     }
+    HopsItemComponent.prototype.handleClickMe = function () {
+        // console.log("clicked item!");
+        this.itemClick.emit(this.hop);
+    };
     return HopsItemComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
 ], HopsItemComponent.prototype, "hop", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], HopsItemComponent.prototype, "itemClick", void 0);
 HopsItemComponent = __decorate([
     core_1.Component({
         selector: "hops-item",
