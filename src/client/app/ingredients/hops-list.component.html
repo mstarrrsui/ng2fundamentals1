@@ -1,5 +1,9 @@
 <div>
     <h1>Hops List</h1>
-    <hr>
-    <hops-item (itemClick)="handleItemClicked($event)" *ngFor="let h of hopdata" [hop]="h"></hops-item>
+    <hr/>
+    <div class="row">
+        <div *ngFor="let h of hopdata" class="col-md-5">
+            <hops-item (itemClick)="handleItemClicked($event)"  [hop]="h"></hops-item>
+        </div>
+    </div>
 </div>
