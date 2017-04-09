@@ -1,24 +1,20 @@
 import { Component } from "@angular/core";
+import { IngredientService } from "./shared/ingredient.service";
+import { Hop } from "./model/hop.model";
 
 @Component({
     selector: "hops-list",
     templateUrl: "app/ingredients/hops-list.component.html"
 })
 export class HopsListComponent {
-    hopdata = {
-        hsi: "25.0000000",
-        id: 28,
-        type: "Both",
-        betaAcid: "4.0000000",
-        description: `Special aroma hops released in 2007.  Imparts high alpha/oil content but low cohumulone.
-        Aroma: Adds interesting citrus and tropical fruit character to the beer.
-        Substitutes: Unknown
-        `,
-        alphaAcid: "12.0000000",
-        useIn: "Boil",
-        name: "Citra",
-        countryOfOrigin: "U.S."
-    };
+
+    hopdata: Hop[];
+
+    constructor(private ingredientService: IngredientService) { }
+
+    ngOnInit() {
+        this.ingredientService.getHops().then( hops => this.hopdata = hops);
+    }
 
     handleItemClicked(item: any) {
         console.log("received:", item.name);

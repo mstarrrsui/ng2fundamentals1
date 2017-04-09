@@ -10,26 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ingredient_service_1 = require("./shared/ingredient.service");
-var HopsListComponent = (function () {
-    function HopsListComponent(ingredientService) {
-        this.ingredientService = ingredientService;
+var http_1 = require("@angular/http");
+require("rxjs/add/operator/toPromise");
+var IngredientService = (function () {
+    function IngredientService(http) {
+        this.http = http;
     }
-    HopsListComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.ingredientService.getHops().then(function (hops) { return _this.hopdata = hops; });
+    IngredientService.prototype.getHops = function () {
+        return this.http.get("/api/hops")
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
     };
-    HopsListComponent.prototype.handleItemClicked = function (item) {
-        console.log("received:", item.name);
+    IngredientService.prototype.handleError = function (error) {
+        console.error("An error occurred", error); // for demo purposes only
+        return Promise.reject(error.message || error);
     };
-    return HopsListComponent;
+    return IngredientService;
 }());
-HopsListComponent = __decorate([
-    core_1.Component({
-        selector: "hops-list",
-        templateUrl: "app/ingredients/hops-list.component.html"
-    }),
-    __metadata("design:paramtypes", [ingredient_service_1.IngredientService])
-], HopsListComponent);
-exports.HopsListComponent = HopsListComponent;
-//# sourceMappingURL=hops-list.component.js.map
+IngredientService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], IngredientService);
+exports.IngredientService = IngredientService;
+//# sourceMappingURL=ingredient.service.js.map

@@ -31,7 +31,8 @@ __decorate([
 HopsItemComponent = __decorate([
     core_1.Component({
         selector: "hops-item",
-        templateUrl: "app/ingredients/hops-item.component.html"
+        templateUrl: "app/ingredients/hops-item.component.html",
+        styleUrls: ["app/ingredients/hops-item.component.css"]
     })
 ], HopsItemComponent);
 exports.HopsItemComponent = HopsItemComponent;
