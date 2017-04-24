@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Hop } from "./model/hop.model";
 
 @Component({
     selector: "hops-item",
@@ -6,11 +7,11 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
     styleUrls: ["app/ingredients/hops-item.component.css"]
 })
 export class HopsItemComponent {
-    @Input() hop: any;
+    @Input() hop: Hop;
     @Output() itemClick = new EventEmitter();
 
     handleClickMe() {
-        // console.log("clicked item!");
+        console.log("clicked item!");
         this.itemClick.emit(this.hop);
     }
 }

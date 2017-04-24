@@ -14,6 +14,7 @@ var hops_list_component_1 = require("./ingredients/hops-list.component");
 var hops_item_component_1 = require("./ingredients/hops-item.component");
 var navbar_component_1 = require("./nav/navbar.component");
 var ingredient_service_1 = require("./ingredients/shared/ingredient.service");
+var toastr_service_1 = require("./common/toastr.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -31,7 +32,7 @@ AppModule = __decorate([
             hops_item_component_1.HopsItemComponent,
             navbar_component_1.NavBarComponent
         ],
-        providers: [ingredient_service_1.IngredientService],
+        providers: [ingredient_service_1.IngredientService, toastr_service_1.ToastrService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

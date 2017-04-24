@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var Rx_1 = require("rxjs/Rx");
 require("rxjs/add/operator/toPromise");
 var IngredientService = (function () {
     function IngredientService(http) {
@@ -18,13 +19,16 @@ var IngredientService = (function () {
     }
     IngredientService.prototype.getHops = function () {
         return this.http.get("/api/hops")
-            .toPromise()
-            .then(function (response) { return response.json(); })
+            .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
+    // private handleError(error: any): Promise<any> {
+    //     console.error("An error occurred", error); // for demo purposes only
+    //     return Promise.reject(error.message || error);
+    // }
     IngredientService.prototype.handleError = function (error) {
-        console.error("An error occurred", error); // for demo purposes only
-        return Promise.reject(error.message || error);
+        console.error(error);
+        return Rx_1.Observable.throw(error.json().error || "Server error");
     };
     return IngredientService;
 }());

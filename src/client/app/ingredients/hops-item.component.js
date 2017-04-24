@@ -10,19 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var hop_model_1 = require("./model/hop.model");
 var HopsItemComponent = (function () {
     function HopsItemComponent() {
         this.itemClick = new core_1.EventEmitter();
     }
     HopsItemComponent.prototype.handleClickMe = function () {
-        // console.log("clicked item!");
+        console.log("clicked item!");
         this.itemClick.emit(this.hop);
     };
     return HopsItemComponent;
 }());
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Object)
+    __metadata("design:type", hop_model_1.Hop)
 ], HopsItemComponent.prototype, "hop", void 0);
 __decorate([
     core_1.Output(),

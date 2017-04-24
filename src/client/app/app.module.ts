@@ -7,6 +7,7 @@ import { HopsListComponent } from "./ingredients/hops-list.component";
 import { HopsItemComponent } from "./ingredients/hops-item.component";
 import { NavBarComponent } from "./nav/navbar.component";
 import { IngredientService } from "./ingredients/shared/ingredient.service";
+import { ToastrService } from "./common/toastr.service";
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { IngredientService } from "./ingredients/shared/ingredient.service";
     HopsItemComponent,
     NavBarComponent
     ],
-  providers: [ IngredientService ],
+  providers: [ IngredientService, ToastrService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
