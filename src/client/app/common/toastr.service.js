@@ -13,6 +13,15 @@ var ToastrService = (function () {
     ToastrService.prototype.success = function (message, title) {
         toastr.success(message, title);
     };
+    ToastrService.prototype.info = function (message, title) {
+        toastr.info(message, title);
+    };
+    ToastrService.prototype.warning = function (message, title) {
+        toastr.warning(message, title);
+    };
+    ToastrService.prototype.error = function (message, title) {
+        toastr.error(message, title);
+    };
     return ToastrService;
 }());
 ToastrService = __decorate([
